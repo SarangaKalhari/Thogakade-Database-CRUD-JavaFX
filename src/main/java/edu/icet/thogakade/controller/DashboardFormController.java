@@ -34,6 +34,7 @@ public class DashboardFormController {
             Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             currentStage.close();
 
+            stage.show();
 
     }
 
@@ -45,6 +46,7 @@ public class DashboardFormController {
             Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             currentStage.close();
 
+            stage.show();
     }
 
     public void orderDetailOnAction(ActionEvent actionEvent) throws IOException {
@@ -55,6 +57,8 @@ public class DashboardFormController {
 
             Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             currentStage.close();
+
+            stage.show();
 
     }
 }
