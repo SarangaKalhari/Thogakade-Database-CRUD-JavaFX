@@ -1,5 +1,6 @@
 package edu.icet.thogakade.controller.Order;
 
+import edu.icet.thogakade.controller.DashboardFormController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -7,7 +8,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
+
 public class OrderController {
+
+    DashboardFormController formController = new DashboardFormController();
 
     @FXML
     private DatePicker calDate;
@@ -51,22 +56,25 @@ public class OrderController {
     }
 
     @FXML
-    void customerOnAction(ActionEvent event) {
+    void customerOnAction(ActionEvent event) throws IOException {
+        formController.customerOnAction(event);
+    }
+
+    @FXML
+    void itemOnAction(ActionEvent event) throws IOException {
+        formController.itemOnAction(event);
 
     }
 
     @FXML
-    void itemOnAction(ActionEvent event) {
+    void orderDetailOnAction(ActionEvent event) throws IOException {
+        formController.orderDetailOnAction(event);
 
     }
 
     @FXML
-    void orderDetailOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void orderOnAction(ActionEvent event) {
+    void orderOnAction(ActionEvent event) throws IOException {
+        formController.orderOnAction(event);
 
     }
 
