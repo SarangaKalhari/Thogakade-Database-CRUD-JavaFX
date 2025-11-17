@@ -13,28 +13,29 @@
                 <Font name="System Bold Italic" size="36.0" />
             </font>
         </Label>
-        <Pane layoutY="-3.0" prefHeight="666.0" prefWidth="167.0" style="-fx-background-color: blue;">
-            <children>
-                <Button layoutX="8.0" layoutY="333.0" mnemonicParsing="false" onAction="#customerOnAction" prefHeight="30.0" prefWidth="151.0" text="Customer">
-                    <font>
-                        <Font name="System Bold" size="14.0" />
-                    </font>
-                </Button>
-                <Button layoutX="8.0" layoutY="412.0" mnemonicParsing="false" onAction="#itemOnAction" prefHeight="30.0" prefWidth="151.0" text="Item">
-                    <font>
-                        <Font name="System Bold" size="14.0" />
-                    </font>
-                </Button>
-                <Button layoutX="8.0" layoutY="493.0" mnemonicParsing="false" onAction="#orderOnAction" prefHeight="30.0" prefWidth="151.0" text="Order Management">
-                    <font>
-                        <Font name="System Bold" size="14.0" />
-                    </font>
-                </Button>
-                <Button layoutX="8.0" layoutY="574.0" mnemonicParsing="false" onAction="#orderDetailOnAction" prefHeight="30.0" prefWidth="151.0" text="Order Details">
-                    <font>
-                        <Font name="System Bold" size="14.0" />
-                    </font>
-                </Button>
-            </children></Pane>
+      <Pane prefHeight="683.0" prefWidth="147.0" style="-fx-background-color: #3a6cbd;">
+         <children>
+            <Button layoutX="15.0" layoutY="327.0" mnemonicParsing="false" onAction="#customerOnAction" prefHeight="30.0" prefWidth="118.0" text="Customer">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="15.0" layoutY="395.0" mnemonicParsing="false" onAction="#itemOnAction" prefHeight="30.0" prefWidth="118.0" text="Item">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="15.0" layoutY="471.0" mnemonicParsing="false" onAction="#orderOnAction" prefHeight="50.0" prefWidth="118.0" text="Order&#10;Management">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="15.0" layoutY="560.0" mnemonicParsing="false" onAction="#orderDetailOnAction" prefHeight="50.0" prefWidth="118.0" text="Order &#10;Details">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
     </children>
 </AnchorPane>

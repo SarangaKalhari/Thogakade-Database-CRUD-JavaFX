@@ -1,33 +1,113 @@
 package edu.icet.thogakade.controller.Customer;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
 public class CustomerController {
-    public void customerOnAction(ActionEvent actionEvent) {
+
+    @FXML
+    private DatePicker calDate;
+
+    @FXML
+    private TableColumn<?, ?> colAddress;
+
+    @FXML
+    private TableColumn<?, ?> colCity;
+
+    @FXML
+    private TableColumn<?, ?> colCustId;
+
+    @FXML
+    private TableColumn<?, ?> colDOB;
+
+    @FXML
+    private TableColumn<?, ?> colName;
+
+    @FXML
+    private TableColumn<?, ?> colPostalCode;
+
+    @FXML
+    private TableColumn<?, ?> colProvince;
+
+    @FXML
+    private TableColumn<?, ?> colSalary;
+
+    @FXML
+    private TableColumn<?, ?> colTitle;
+
+    @FXML
+    private TableView<?> tblCustomer;
+
+    @FXML
+    private TextField txtAddress;
+
+    @FXML
+    private TextField txtCity;
+
+    @FXML
+    private TextField txtID;
+
+    @FXML
+    private TextField txtName;
+
+    @FXML
+    private TextField txtPostalCode;
+
+    @FXML
+    private TextField txtProvience;
+
+    @FXML
+    private TextField txtSalary;
+
+    @FXML
+    private TextField txtTitle;
+
+    @FXML
+    void btnAddOnAction(ActionEvent event) {
+
     }
 
-    public void itemOnAction(ActionEvent actionEvent) {
+    @FXML
+    void btnDeleteOnAction(ActionEvent event) {
+
     }
 
-    public void supplierOnAction(ActionEvent actionEvent) {
+    @FXML
+    void btnReloadOnAction(ActionEvent event) {
+
     }
 
-    public void employeeOnAction(ActionEvent actionEvent) {
+    @FXML
+    void btnUpdateOnAction(ActionEvent event) {
+
     }
 
-    public void btnAddOnAction(ActionEvent actionEvent) {
-        
+    @FXML
+    void btnViewOnAction(ActionEvent event) {
+
     }
 
-    public void btnViewOnAction(ActionEvent actionEvent) {
+    @FXML
+    void customerOnAction(ActionEvent event) {
+
     }
 
-    public void btnUpdateOnAction(ActionEvent actionEvent) {
+    @FXML
+    void itemOnAction(ActionEvent event) {
+
     }
 
-    public void btnDeleteOnAction(ActionEvent actionEvent) {
+    @FXML
+    void orderDetailOnAction(ActionEvent event) {
+
     }
 
-    public void btnReloadOnAction(ActionEvent actionEvent) {
+    @FXML
+    void orderOnAction(ActionEvent event) {
+
     }
 }
