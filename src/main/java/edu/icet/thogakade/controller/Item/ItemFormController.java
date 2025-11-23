@@ -1,4 +1,4 @@
-package edu.icet.thogakade.controller.OrderDetails;
+package edu.icet.thogakade.controller.Item;
 
 import edu.icet.thogakade.controller.DashboardFormController;
 import javafx.event.ActionEvent;
@@ -9,36 +9,42 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-public class OrderDetailController {
+public class ItemFormController {
 
     DashboardFormController formController = new DashboardFormController();
 
     @FXML
-    private TableColumn<?, ?> colDiscount;
+    private TableColumn<?, ?> colDescription;
 
     @FXML
     private TableColumn<?, ?> colItemCode;
 
     @FXML
-    private TableColumn<?, ?> colOrderID;
+    private TableColumn<?, ?> colPackSize;
 
     @FXML
-    private TableColumn<?, ?> colOrderQty;
+    private TableColumn<?, ?> colQty;
 
     @FXML
-    private TableView<?> tblOrderDetails;
+    private TableColumn<?, ?> colUnitPrice;
 
     @FXML
-    private TextField txtDiscount;
+    private TableView<?> tblItem;
+
+    @FXML
+    private TextField txtDescription;
 
     @FXML
     private TextField txtItemCode;
 
     @FXML
-    private TextField txtOrderID;
+    private TextField txtPackSize;
 
     @FXML
-    private TextField txtOrderQTY;
+    private TextField txtQTY;
+
+    @FXML
+    private TextField txtUnitPrice;
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
@@ -63,7 +69,6 @@ public class OrderDetailController {
     @FXML
     void customerOnAction(ActionEvent event) throws IOException {
         formController.customerOnAction(event);
-
     }
 
     @FXML

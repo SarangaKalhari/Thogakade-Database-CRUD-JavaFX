@@ -1,5 +1,4 @@
 package edu.icet.thogakade.controller.Customer;
 
-public class CustomerController {
-
+public interface CustomerService {
 }

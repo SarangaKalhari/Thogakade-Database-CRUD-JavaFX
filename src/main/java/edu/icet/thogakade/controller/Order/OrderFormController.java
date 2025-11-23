@@ -1,50 +1,39 @@
-package edu.icet.thogakade.controller.Item;
+package edu.icet.thogakade.controller.Order;
 
 import edu.icet.thogakade.controller.DashboardFormController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-public class ItemController {
+public class OrderFormController {
 
     DashboardFormController formController = new DashboardFormController();
 
     @FXML
-    private TableColumn<?, ?> colDescription;
+    private DatePicker calDate;
 
     @FXML
-    private TableColumn<?, ?> colItemCode;
+    private TableColumn<?, ?> colCustID;
 
     @FXML
-    private TableColumn<?, ?> colPackSize;
+    private TableColumn<?, ?> colDate;
 
     @FXML
-    private TableColumn<?, ?> colQty;
+    private TableColumn<?, ?> colOrderID;
 
     @FXML
-    private TableColumn<?, ?> colUnitPrice;
+    private TableView<?> tblOrder;
 
     @FXML
-    private TableView<?> tblItem;
+    private TextField txtCustID;
 
     @FXML
-    private TextField txtDescription;
-
-    @FXML
-    private TextField txtItemCode;
-
-    @FXML
-    private TextField txtPackSize;
-
-    @FXML
-    private TextField txtQTY;
-
-    @FXML
-    private TextField txtUnitPrice;
+    private TextField txtOrderID;
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
