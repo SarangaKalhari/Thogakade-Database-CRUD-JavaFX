@@ -1,9 +1,13 @@
 package edu.icet.thogakade.controller.Customer;
 
 import edu.icet.thogakade.controller.db.DBConnection;
+import edu.icet.thogakade.model.DTO.Customer;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class CustomerController implements CustomerService{
@@ -68,5 +72,38 @@ public class CustomerController implements CustomerService{
             throw new RuntimeException(e);
         }
 
+    }
+
+    @Override
+    public ObservableList<Customer> loadCustomerDetails(){
+
+        ObservableList<Customer> customerInfoArray= FXCollections.observableArrayList( );
+
+
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM customer");
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Customer customerDTO = new Customer(
+                        resultSet.getString("custId"),
+                        resultSet.getString("title"),
+                        resultSet.getString("name"),
+                        resultSet.getString("dob"),        // You can also use resultSet.getDate("dob") if DTO uses java.sql.Date
+                        resultSet.getDouble("salary"),
+                        resultSet.getString("address"),
+                        resultSet.getString("city"),
+                        resultSet.getString("province"),
+                        resultSet.getString("postalCode")
+                );
+                customerInfoArray.add(customerDTO);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return customerInfoArray;
     }
 }

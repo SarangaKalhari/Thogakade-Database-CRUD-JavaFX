@@ -169,7 +169,7 @@ public class CustomerFormController implements Initializable {
 
     @FXML
     void btnReloadOnAction(ActionEvent event) {
-
+        controller.loadCustomerDetails();
     }
 
     @FXML
