@@ -32,4 +32,17 @@ public class CustomerController implements CustomerService{
         }
 
     }
+
+    @Override
+    public void deleteCustomer(String id){
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM customer WHERE custId=?");
+            preparedStatement.setObject(1, id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

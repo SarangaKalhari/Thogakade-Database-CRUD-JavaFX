@@ -164,7 +164,7 @@ public class CustomerFormController implements Initializable {
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-
+        controller.deleteCustomer(txtID.getText());
     }
 
     @FXML
