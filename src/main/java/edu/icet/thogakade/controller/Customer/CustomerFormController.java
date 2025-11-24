@@ -174,7 +174,7 @@ public class CustomerFormController implements Initializable {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
-
+        controller.updateCustomerDetails(txtID.getText(), txtTitle.getText(), txtName.getText(), calDate.toString(), Double.parseDouble(txtSalary.getText()), txtAddress.getText(), txtCity.getText(), txtProvience.getText(), txtPostalCode.getText());
     }
 
     @FXML
