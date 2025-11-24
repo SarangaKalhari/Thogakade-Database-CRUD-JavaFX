@@ -28,6 +28,8 @@ public class CustomerFormController implements Initializable {
 
     ObservableList<Customer> customers = FXCollections.observableArrayList();
 
+    CustomerController controller = new CustomerController();
+
 
     @FXML
     private TableColumn<?, ?> colAddress;
@@ -58,6 +60,33 @@ public class CustomerFormController implements Initializable {
 
     @FXML
     private TableView<Customer> tblCustomer;
+
+    @FXML
+    private TextField txtAddress;
+
+    @FXML
+    private TextField txtCity;
+
+    @FXML
+    private TextField txtID;
+
+    @FXML
+    private TextField txtName;
+
+    @FXML
+    private TextField txtPostalCode;
+
+    @FXML
+    private TextField txtProvience;
+
+    @FXML
+    private TextField txtSalary;
+
+    @FXML
+    private TextField txtTitle;
+
+    @FXML
+    private DatePicker calDate;
 
 
     @FXML
@@ -127,4 +156,30 @@ public class CustomerFormController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+
+    @FXML
+    void btnAddOnAction(ActionEvent event) {
+        controller.addCustomer(txtID.getText(), txtTitle.getText(), txtName.getText(), calDate.toString(), Double.parseDouble(txtSalary.getText()), txtAddress.getText(), txtCity.getText(), txtProvience.getText(), txtPostalCode.getText());
+    }
+
+    @FXML
+    void btnDeleteOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnReloadOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnUpdateOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnViewOnAction(ActionEvent event) {
+
+    }
+
 }
