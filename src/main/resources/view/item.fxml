@@ -18,18 +18,18 @@
                   <Font name="System Bold Italic" size="24.0" />
                </font>
             </Label>
-            <TableView fx:id="tblItem" layoutX="146.0" layoutY="290.0" prefHeight="412.0" prefWidth="771.0">
+            <TableView fx:id="tblItem" layoutX="146.0" layoutY="290.0" prefHeight="342.0" prefWidth="771.0">
                <columns>
                   <TableColumn fx:id="colItemCode" prefWidth="105.60000610351562" text="Item Code" />
                   <TableColumn fx:id="colDescription" prefWidth="274.40003967285156" text="Description" />
-                  <TableColumn fx:id="colPackSize" prefWidth="110.39996337890625" text="Pack Size" />
-                  <TableColumn fx:id="colUnitPrice" prefWidth="124.0" text="Unit Price" />
-                  <TableColumn fx:id="colQty" prefWidth="162.400146484375" text="Quantity On Hand" />
+                  <TableColumn fx:id="colCatagory" prefWidth="110.39996337890625" text="Catagory" />
+                  <TableColumn fx:id="colQty" prefWidth="124.0" text="Quantity On Hand" />
+                  <TableColumn fx:id="colUnitPrice" prefWidth="162.400146484375" text="Unit Price" />
                </columns>
             </TableView>
             <TextField fx:id="txtItemCode" layoutX="155.0" layoutY="117.0" prefHeight="26.0" prefWidth="214.0" promptText="Item Code" />
             <TextField fx:id="txtDescription" layoutX="415.0" layoutY="117.0" prefHeight="26.0" prefWidth="484.0" promptText="Description" />
-            <TextField fx:id="txtPackSize" layoutX="155.0" layoutY="165.0" prefHeight="26.0" prefWidth="214.0" promptText="Pack size" />
+            <TextField fx:id="txtCatagory" layoutX="155.0" layoutY="165.0" prefHeight="26.0" prefWidth="214.0" promptText="Catagory" />
             <TextField fx:id="txtUnitPrice" layoutX="415.0" layoutY="165.0" prefHeight="26.0" prefWidth="214.0" promptText="Unit Price" />
             <TextField fx:id="txtQTY" layoutX="681.0" layoutY="164.0" prefHeight="26.0" prefWidth="222.0" promptText="Qty On Hand" />
             <Button layoutX="155.0" layoutY="219.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="25.0" prefWidth="70.0" text="ADD">
@@ -76,7 +76,13 @@
                   </Button>
                </children>
             </Pane>
+            <Button layoutX="438.0" layoutY="649.0" mnemonicParsing="false" onAction="#reloadOnAction" prefHeight="30.0" prefWidth="100.0" text="Reload">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
+      <Button mnemonicParsing="false" text="Button" />
    </children>
 </AnchorPane>
