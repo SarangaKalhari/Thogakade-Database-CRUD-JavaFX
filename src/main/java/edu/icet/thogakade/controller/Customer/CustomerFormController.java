@@ -1,7 +1,6 @@
 package edu.icet.thogakade.controller.Customer;
 
 import edu.icet.thogakade.controller.DashboardFormController;
-import edu.icet.thogakade.controller.db.DBConnection;
 import edu.icet.thogakade.model.DTO.Customer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,17 +15,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class CustomerFormController implements Initializable {
 
     DashboardFormController formController = new DashboardFormController();
 
-    ObservableList<Customer> customers = FXCollections.observableArrayList();
+    ObservableList<Customer> customerObservableList = FXCollections.observableArrayList();
 
     CustomerController controller = new CustomerController();
 
@@ -115,7 +111,7 @@ public class CustomerFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        colCustId.setCellValueFactory(new PropertyValueFactory<>("custID"));
+        colCustId.setCellValueFactory(new PropertyValueFactory<>("custId"));
         colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colDOB.setCellValueFactory(new PropertyValueFactory<>("dob"));
@@ -126,35 +122,27 @@ public class CustomerFormController implements Initializable {
         colPostalCode.setCellValueFactory(new PropertyValueFactory<>("postalCode"));
 
         loadCustomerDetails();
-//        tblCustomer.setItems(customers);
 
+        tblCustomer.getSelectionModel().selectedItemProperty().addListener((observableValue, customerInfoDto, t1) -> {
+            if (t1 != null) {
+                txtID.setText(t1.getCustId());
+                txtTitle.setText(t1.getTitle());
+                txtName.setText(t1.getName());
+                calDate.setValue(LocalDate.parse(t1.getDob()));
+                txtSalary.setText(String.valueOf(t1.getSalary()));
+                txtAddress.setText(t1.getAddress());
+                txtCity.setText(t1.getCity());
+                txtProvience.setText(t1.getProvince());
+                txtPostalCode.setText(t1.getPostalCode());
+            }
+
+        });
 
     }
 
     private void loadCustomerDetails() {
-        try {
-            Connection connection = DBConnection.getInstance().getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM customer");
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()) {
-                Customer customerDTO = new Customer(
-                        resultSet.getString("custId"),
-                        resultSet.getString("title"),
-                        resultSet.getString("name"),
-                        resultSet.getString("dob"),        // You can also use resultSet.getDate("dob") if DTO uses java.sql.Date
-                        resultSet.getDouble("salary"),
-                        resultSet.getString("address"),
-                        resultSet.getString("city"),
-                        resultSet.getString("province"),
-                        resultSet.getString("postalCode")
-                );
-                customers.add(customerDTO);
-            }
-            tblCustomer.setItems(customers);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        customerObservableList.clear();
+        tblCustomer.setItems(controller.loadCustomerDetails());
     }
 
     @FXML
@@ -169,7 +157,7 @@ public class CustomerFormController implements Initializable {
 
     @FXML
     void btnReloadOnAction(ActionEvent event) {
-        controller.loadCustomerDetails();
+        loadCustomerDetails();
     }
 
     @FXML
@@ -179,7 +167,7 @@ public class CustomerFormController implements Initializable {
 
     @FXML
     void btnViewOnAction(ActionEvent event) {
-
+//        controller.getCustomer(txtID.getText());
     }
 
 }

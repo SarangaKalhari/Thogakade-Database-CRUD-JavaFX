@@ -1,6 +1,6 @@
 package edu.icet.thogakade.controller.Customer;
 
-import edu.icet.thogakade.controller.db.DBConnection;
+import edu.icet.thogakade.db.DBConnection;
 import edu.icet.thogakade.model.DTO.Customer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -86,7 +86,7 @@ public class CustomerController implements CustomerService{
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Customer customerDTO = new Customer(
+                Customer customer = new Customer(
                         resultSet.getString("custId"),
                         resultSet.getString("title"),
                         resultSet.getString("name"),
@@ -97,7 +97,7 @@ public class CustomerController implements CustomerService{
                         resultSet.getString("province"),
                         resultSet.getString("postalCode")
                 );
-                customerInfoArray.add(customerDTO);
+                customerInfoArray.add(customer);
             }
 
         } catch (SQLException e) {
@@ -106,4 +106,14 @@ public class CustomerController implements CustomerService{
 
         return customerInfoArray;
     }
+
+//    public Customer getCustomer(String custID) {
+//
+//        for (Customer customer: loadCustomerDetails()){
+//            if (custID.equals(customer.getCustID())){
+//                return customer;
+//            }
+//        }
+//        return null;
+//    }
 }

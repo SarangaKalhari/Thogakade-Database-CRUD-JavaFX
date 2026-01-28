@@ -1,4 +1,4 @@
-package edu.icet.thogakade.controller.db;
+package edu.icet.thogakade.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,7 +12,7 @@ public class DBConnection {
 
     private DBConnection() throws SQLException {
 
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/thogakade", "root", "1234");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/thogakade_fx", "root", "1234");
     }
 
     public static DBConnection getInstance() throws SQLException {
