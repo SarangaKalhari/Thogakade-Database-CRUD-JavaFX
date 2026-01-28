@@ -107,6 +107,16 @@ public class CustomerController implements CustomerService{
         return customerInfoArray;
     }
 
+    public Customer getCustomer(String text) {
+
+        for (Customer customer: loadCustomerDetails()){
+            if (text.equals(customer.getCustId())){
+                return customer;
+            }
+        }
+        return null;
+    }
+
 //    public Customer getCustomer(String custID) {
 //
 //        for (Customer customer: loadCustomerDetails()){

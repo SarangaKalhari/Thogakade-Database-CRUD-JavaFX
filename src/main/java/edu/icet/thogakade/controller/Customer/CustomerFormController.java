@@ -147,12 +147,15 @@ public class CustomerFormController implements Initializable {
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
-        controller.addCustomer(txtID.getText(), txtTitle.getText(), txtName.getText(), calDate.toString(), Double.parseDouble(txtSalary.getText()), txtAddress.getText(), txtCity.getText(), txtProvience.getText(), txtPostalCode.getText());
+        LocalDate localDate = calDate.getValue();
+        controller.addCustomer(txtID.getText(), txtTitle.getText(), txtName.getText(), String.valueOf(localDate), Double.parseDouble(txtSalary.getText()), txtAddress.getText(), txtCity.getText(), txtProvience.getText(), txtPostalCode.getText());
+        loadCustomerDetails();
     }
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
         controller.deleteCustomer(txtID.getText());
+        loadCustomerDetails();
     }
 
     @FXML
@@ -163,11 +166,23 @@ public class CustomerFormController implements Initializable {
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
         controller.updateCustomerDetails(txtID.getText(), txtTitle.getText(), txtName.getText(), calDate.toString(), Double.parseDouble(txtSalary.getText()), txtAddress.getText(), txtCity.getText(), txtProvience.getText(), txtPostalCode.getText());
+        loadCustomerDetails();
     }
 
     @FXML
     void btnViewOnAction(ActionEvent event) {
-//        controller.getCustomer(txtID.getText());
+        Customer customer = controller.getCustomer(txtID.getText());
+        if(customer!= null){
+            txtID.setText(customer.getCustId());
+            txtTitle.setText(customer.getTitle());
+            txtName.setText(customer.getName());
+            calDate.setValue(LocalDate.parse(customer.getDob()));
+            txtSalary.setText(String.valueOf(customer.getSalary()));
+            txtAddress.setText(customer.getAddress());
+            txtCity.setText(customer.getCity());
+            txtProvience.setText(customer.getProvince());
+            txtPostalCode.setText(customer.getPostalCode());
+        }
     }
 
 }
