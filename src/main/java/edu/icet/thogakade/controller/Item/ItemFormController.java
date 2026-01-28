@@ -60,23 +60,35 @@ public class ItemFormController implements Initializable {
     private TextField txtUnitPrice;
 
     @FXML
-    void btnAddOnAction(ActionEvent event) {
+    void btnAddOnAction(ActionEvent event) throws SQLException {
         itemController.addItem(txtItemCode.getText(), txtDescription.getText(), txtCatagory.getText(), Double.parseDouble(txtUnitPrice.getText()), Integer.parseInt(txtQTY.getText()));
+        loadItemDetails();
+    }
+
+    @FXML
+    void btnDeleteOnAction(ActionEvent event) throws SQLException {
+        itemController.deleteItem(txtItemCode.getText());
+        loadItemDetails();
 
     }
 
     @FXML
-    void btnDeleteOnAction(ActionEvent event) {
+    void btnUpdateOnAction(ActionEvent event) throws SQLException {
+        itemController.updateItem(txtItemCode.getText(), txtDescription.getText(), txtCatagory.getText(), Integer.parseInt(txtQTY.getText()), Double.parseDouble(txtUnitPrice.getText()));
+        loadItemDetails();
 
     }
 
     @FXML
-    void btnUpdateOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnViewOnAction(ActionEvent event) {
+    void btnViewOnAction(ActionEvent event) throws SQLException {
+        Item item = itemController.getItem(txtItemCode.getText());
+        if(item != null){
+            txtItemCode.setText(item.getItemCode());
+            txtDescription.setText(item.getDescription());
+            txtCatagory.setText(item.getCategory());
+            txtQTY.setText(String.valueOf(item.getQtyOnHand()));
+            txtUnitPrice.setText(String.valueOf(item.getUnitPrice()));
+        }
 
     }
 
@@ -103,7 +115,8 @@ public class ItemFormController implements Initializable {
 
     }
 
-    public void reloadOnAction(ActionEvent actionEvent) {
+    public void reloadOnAction(ActionEvent actionEvent) throws SQLException {
+        loadItemDetails();
     }
 
     @Override
