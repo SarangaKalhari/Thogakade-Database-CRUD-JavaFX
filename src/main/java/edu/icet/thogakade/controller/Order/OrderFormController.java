@@ -48,7 +48,8 @@ public class OrderFormController implements Initializable {
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
-
+        orderController.addOrder(txtOrderID.getText(), calDate.getValue().toString(), txtCustID.getText());
+        loadOrders();
     }
 
     @FXML

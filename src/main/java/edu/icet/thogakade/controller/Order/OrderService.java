@@ -6,4 +6,6 @@ import javafx.collections.ObservableList;
 public interface OrderService {
 
     ObservableList<Order> loadOrders();
+
+    void addOrder(String orderID, String date, String custID);
 }
