@@ -20,7 +20,7 @@ public class ItemController implements ItemService{
 
         try {
             Connection connection = DBConnection.getInstance().getConnection();
-            PreparedStatement ps = connection.prepareStatement("INSERT INTO items VALUES (?, ?, ?, ?, ?)");
+            PreparedStatement ps = connection.prepareStatement("INSERT INTO item VALUES (?, ?, ?, ?, ?)");
             ps.setObject(1, code);
             ps.setObject(2, description);
             ps.setObject(3, category);
@@ -39,16 +39,16 @@ public class ItemController implements ItemService{
 
         try {
             Connection connection = DBConnection.getInstance().getConnection();
-            PreparedStatement ps = connection.prepareStatement("SELECT * FROM items");
+            PreparedStatement ps = connection.prepareStatement("SELECT * FROM item");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 itemInfoArray.add(new Item(
                         rs.getString("itemCode"),
                         rs.getString("description"),
-                        rs.getString("category"),
-                        rs.getInt("qtyOnHand"),
-                        rs.getDouble("unitPrice")
+                        rs.getString("packSize"),
+                        rs.getDouble("unitPrice"),
+                        rs.getInt("qtyOnHand")
                 ));
             }
         }catch (SQLException e) {
@@ -73,7 +73,7 @@ public class ItemController implements ItemService{
 
         try {
             Connection connection = DBConnection.getInstance().getConnection();
-            PreparedStatement statement = connection.prepareStatement("DELETE FROM items WHERE itemCode=?");
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM item WHERE itemCode=?");
 
             statement.setObject(1, code);
             statement.executeUpdate();
@@ -84,16 +84,16 @@ public class ItemController implements ItemService{
     }
 
     @Override
-    public void updateItem(String code, String description, String category, int qty, double price) {
+    public void updateItem(String code, String description, String packSize, int qty, double price) {
 
         try {
             Connection connection = DBConnection.getInstance().getConnection();
-            PreparedStatement statement = connection.prepareStatement("UPDATE items SET description=?, category=?, qtyOnHand=?, unitPrice=? WHERE itemCode=?");
+            PreparedStatement statement = connection.prepareStatement("UPDATE item SET description=?, packSize=?, unitPrice=?, qtyOnHand=? WHERE itemCode=?");
 
             statement.setObject(1,description);
-            statement.setObject(2,category);
-            statement.setObject(3,qty);
-            statement.setObject(4,price);
+            statement.setObject(2,packSize);
+            statement.setObject(3,price);
+            statement.setObject(4,qty);
             statement.setObject(5, code);
 
             statement.execute();

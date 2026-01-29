@@ -85,7 +85,7 @@ public class ItemFormController implements Initializable {
         if(item != null){
             txtItemCode.setText(item.getItemCode());
             txtDescription.setText(item.getDescription());
-            txtCatagory.setText(item.getCategory());
+            txtCatagory.setText(item.getPackSize());
             txtQTY.setText(String.valueOf(item.getQtyOnHand()));
             txtUnitPrice.setText(String.valueOf(item.getUnitPrice()));
         }
@@ -124,7 +124,7 @@ public class ItemFormController implements Initializable {
 
         colItemCode.setCellValueFactory(new PropertyValueFactory<>("itemCode"));
         colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
-        colCatagory.setCellValueFactory(new PropertyValueFactory<>("category"));
+        colCatagory.setCellValueFactory(new PropertyValueFactory<>("packSize"));
         colQty.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
         colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
 
@@ -139,7 +139,7 @@ public class ItemFormController implements Initializable {
             txtDescription.setText(t1.getDescription());
             txtUnitPrice.setText(String.valueOf(t1.getUnitPrice()));
             txtQTY.setText(String.valueOf(t1.getQtyOnHand()));
-            txtCatagory.setText(t1.getCategory());
+            txtCatagory.setText(t1.getPackSize());
 //            txtPackSize.setText(t1.getPackSize());
 //            txtItemCode.setText(t1.getCode());
         }));
