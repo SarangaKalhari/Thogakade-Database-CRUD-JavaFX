@@ -54,4 +54,18 @@ public class OrderController implements OrderService {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public void deleteOrder(String id) {
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM orders WHERE OrderID=?");
+
+            statement.setObject(1, id);
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
