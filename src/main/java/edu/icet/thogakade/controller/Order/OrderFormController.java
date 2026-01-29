@@ -65,6 +65,8 @@ public class OrderFormController implements Initializable {
 
     @FXML
     void btnViewOnAction(ActionEvent event) {
+        orderController.getOrder(txtOrderID.getText());
+
 
     }
 

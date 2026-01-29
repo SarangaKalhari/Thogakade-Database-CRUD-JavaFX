@@ -68,4 +68,14 @@ public class OrderController implements OrderService {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public Order getOrder(String id) {
+        for (Order order: loadOrders()){
+            if (id.equals(order.getOrderID())){
+                return order;
+            }
+        }
+        return null;
+    }
 }

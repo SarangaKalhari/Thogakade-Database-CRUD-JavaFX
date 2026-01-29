@@ -1,6 +1,7 @@
 package edu.icet.thogakade.controller.Order;
 
 import edu.icet.thogakade.model.DTO.Order;
+import edu.icet.thogakade.model.DTO.OrderDetail;
 import javafx.collections.ObservableList;
 
 public interface OrderService {
@@ -10,4 +11,6 @@ public interface OrderService {
     void addOrder(String orderID, String date, String custID);
 
     void deleteOrder(String id);
+
+    Order getOrder(String id);
 }
