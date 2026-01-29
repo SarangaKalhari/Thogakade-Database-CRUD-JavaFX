@@ -51,7 +51,8 @@ public class OrderDetailFormController implements Initializable {
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
-
+        controller.addOrderDetail(txtOrderID.getText(), txtItemCode.getText(), Integer.parseInt(txtOrderQTY.getText()), Double.parseDouble(txtDiscount.getText()));
+        loadOrderDetail();
     }
 
     @FXML

@@ -37,4 +37,22 @@ public class OrderDetailController implements OrderDetailService{
 
         return orderDetailArray;
     }
+
+    @Override
+    public void addOrderDetail(String code, String itemCode, int qty, double discount) {
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement ps = connection.prepareStatement("INSERT INTO orderdetail VALUES (?, ?, ?, ?)");
+            ps.setObject(1, code);
+            ps.setObject(2, itemCode);
+            ps.setObject(3, qty);
+            ps.setObject(4, discount);
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
 }

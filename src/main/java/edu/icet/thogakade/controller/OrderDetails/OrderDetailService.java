@@ -6,4 +6,7 @@ import javafx.collections.ObservableList;
 public interface OrderDetailService {
 
     ObservableList<OrderDetail> loadOrderDetails();
+
+    void addOrderDetail(String code, String itemCode, int qty, double discount);
+
 }
