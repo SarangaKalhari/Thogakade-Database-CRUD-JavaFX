@@ -1,17 +1,26 @@
 package edu.icet.thogakade.controller.OrderDetails;
 
 import edu.icet.thogakade.controller.DashboardFormController;
+import edu.icet.thogakade.model.DTO.OrderDetail;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class OrderDetailFormController {
+public class OrderDetailFormController implements Initializable {
 
     DashboardFormController formController = new DashboardFormController();
+    OrderDetailController controller = new OrderDetailController();
+    ObservableList<OrderDetail> detailObservableList = FXCollections.observableArrayList();
 
     @FXML
     private TableColumn<?, ?> colDiscount;
@@ -26,7 +35,7 @@ public class OrderDetailFormController {
     private TableColumn<?, ?> colOrderQty;
 
     @FXML
-    private TableView<?> tblOrderDetails;
+    private TableView<OrderDetail> tblOrderDetails;
 
     @FXML
     private TextField txtDiscount;
@@ -84,4 +93,25 @@ public class OrderDetailFormController {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        colOrderID.setCellValueFactory(new PropertyValueFactory<>("OrderID"));
+        colItemCode.setCellValueFactory(new PropertyValueFactory<>("ItemCode"));
+        colOrderQty.setCellValueFactory(new PropertyValueFactory<>("OrderQTY"));
+        colDiscount.setCellValueFactory(new PropertyValueFactory<>("Discount"));
+
+        loadOrderDetail();
+
+        tblOrderDetails.getSelectionModel().selectedItemProperty().addListener((observableValue, OrderDetail, t1) -> {
+            txtOrderID.setText(t1.getOrderID());
+            txtItemCode.setText(t1.getItemCode());
+            txtOrderQTY.setText(String.valueOf(t1.getOrderQTY()));
+            txtDiscount.setText(String.valueOf(t1.getDiscount()));
+        });
+    }
+
+    private void loadOrderDetail() {
+        detailObservableList.clear();
+        tblOrderDetails.setItems(controller.loadOrderDetails());
+    }
 }
