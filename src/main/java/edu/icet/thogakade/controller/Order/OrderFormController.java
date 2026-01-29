@@ -1,18 +1,29 @@
 package edu.icet.thogakade.controller.Order;
 
 import edu.icet.thogakade.controller.DashboardFormController;
+import edu.icet.thogakade.model.DTO.Order;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
+import java.net.URL;
+import java.time.LocalDate;
+import java.util.ResourceBundle;
 
-public class OrderFormController {
+public class OrderFormController implements Initializable {
 
     DashboardFormController formController = new DashboardFormController();
+    OrderController orderController = new OrderController();
+    ObservableList<Order> orders = FXCollections.observableArrayList();
+
 
     @FXML
     private DatePicker calDate;
@@ -27,7 +38,7 @@ public class OrderFormController {
     private TableColumn<?, ?> colOrderID;
 
     @FXML
-    private TableView<?> tblOrder;
+    private TableView<Order> tblOrder;
 
     @FXML
     private TextField txtCustID;
@@ -78,4 +89,24 @@ public class OrderFormController {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        colOrderID.setCellValueFactory(new PropertyValueFactory<>("OrderID"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("OrderDate"));
+        colCustID.setCellValueFactory(new PropertyValueFactory<>("CustID"));
+
+        loadOrders();
+
+        tblOrder.getSelectionModel().selectedItemProperty().addListener((observableValue, order, t1) -> {
+            txtOrderID.setText(t1.getOrderID());
+            calDate.setValue(LocalDate.parse(t1.getOrderDate()));
+            txtCustID.setText(t1.getCustID());
+        });
+
+    }
+
+    private void loadOrders(){
+        orders.clear();
+        tblOrder.setItems(orderController.loadOrders());
+    }
 }
