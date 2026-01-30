@@ -49,6 +49,12 @@ public class OrderDetailController implements OrderDetailService{
             ps.setObject(4, discount);
             ps.executeUpdate();
 
+            PreparedStatement statement = connection.prepareStatement("UPDATE item SET qtyOnHand = qtyOnHand - ? WHERE ItemCode = ?");
+            statement.setInt(1,qty);
+            statement.setString(2,itemCode);
+
+            statement.executeUpdate();
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
