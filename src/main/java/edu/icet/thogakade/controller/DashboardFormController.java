@@ -16,12 +16,11 @@ public class DashboardFormController {
 
     public void customerOnAction(ActionEvent actionEvent) throws IOException {
 
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/customer.fxml"))));
-            stage.setTitle(title);
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/customer.fxml"))));
+        stage.setTitle(title);
 
-            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            currentStage.close();
-
+        Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        currentStage.close();
 
         stage.show();
     }

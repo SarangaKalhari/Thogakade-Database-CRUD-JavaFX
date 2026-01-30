@@ -111,12 +111,12 @@ public class CustomerFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        colCustId.setCellValueFactory(new PropertyValueFactory<>("custId"));
-        colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colCustId.setCellValueFactory(new PropertyValueFactory<>("CustID"));
+        colTitle.setCellValueFactory(new PropertyValueFactory<>("CustTitle"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("CustName"));
         colDOB.setCellValueFactory(new PropertyValueFactory<>("dob"));
         colSalary.setCellValueFactory(new PropertyValueFactory<>("salary"));
-        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("CustAddress"));
         colCity.setCellValueFactory(new PropertyValueFactory<>("city"));
         colProvince.setCellValueFactory(new PropertyValueFactory<>("province"));
         colPostalCode.setCellValueFactory(new PropertyValueFactory<>("postalCode"));
@@ -125,12 +125,12 @@ public class CustomerFormController implements Initializable {
 
         tblCustomer.getSelectionModel().selectedItemProperty().addListener((observableValue, customerInfoDto, t1) -> {
             if (t1 != null) {
-                txtID.setText(t1.getCustId());
-                txtTitle.setText(t1.getTitle());
-                txtName.setText(t1.getName());
+                txtID.setText(t1.getCustID());
+                txtTitle.setText(t1.getCustTitle());
+                txtName.setText(t1.getCustName());
                 calDate.setValue(LocalDate.parse(t1.getDob()));
                 txtSalary.setText(String.valueOf(t1.getSalary()));
-                txtAddress.setText(t1.getAddress());
+                txtAddress.setText(t1.getCustAddress());
                 txtCity.setText(t1.getCity());
                 txtProvience.setText(t1.getProvince());
                 txtPostalCode.setText(t1.getPostalCode());
@@ -173,12 +173,12 @@ public class CustomerFormController implements Initializable {
     void btnViewOnAction(ActionEvent event) {
         Customer customer = controller.getCustomer(txtID.getText());
         if(customer!= null){
-            txtID.setText(customer.getCustId());
-            txtTitle.setText(customer.getTitle());
-            txtName.setText(customer.getName());
+            txtID.setText(customer.getCustID());
+            txtTitle.setText(customer.getCustTitle());
+            txtName.setText(customer.getCustName());
             calDate.setValue(LocalDate.parse(customer.getDob()));
             txtSalary.setText(String.valueOf(customer.getSalary()));
-            txtAddress.setText(customer.getAddress());
+            txtAddress.setText(customer.getCustAddress());
             txtCity.setText(customer.getCity());
             txtProvience.setText(customer.getProvince());
             txtPostalCode.setText(customer.getPostalCode());

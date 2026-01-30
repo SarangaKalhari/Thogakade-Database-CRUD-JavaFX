@@ -8,17 +8,17 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 public class Customer {
-    private String custId;
+    private String custID;
 
-    private String title;
+    private String custTitle;
 
-    private String name;
+    private String custName;
 
     private String dob;
 
     private double salary;
 
-    private String address;
+    private String custAddress;
 
     private String city;
 

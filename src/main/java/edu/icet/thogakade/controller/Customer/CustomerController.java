@@ -41,7 +41,7 @@ public class CustomerController implements CustomerService{
     public void deleteCustomer(String id){
         try {
             Connection connection = DBConnection.getInstance().getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM customer WHERE custId=?");
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM customer WHERE CustID=?");
             preparedStatement.setObject(1, id);
             preparedStatement.executeUpdate();
 
@@ -54,7 +54,7 @@ public class CustomerController implements CustomerService{
     public void updateCustomerDetails(String custId, String title, String name, String dob, double salary, String address, String city, String province, String postalCode){
         try {
             Connection connection = DBConnection.getInstance().getConnection();
-            PreparedStatement preparedStatement=connection.prepareStatement("UPDATE customer SET title=?, name=?, dob=?, salary=?, address=?, city=?, province=?, postalCode=? WHERE custId=?");
+            PreparedStatement preparedStatement=connection.prepareStatement("UPDATE customer SET CustTitle=?, CustName=?, dob=?, salary=?, CustAddress=?, city=?, province=?, postalCode=? WHERE custID=?");
 
             preparedStatement.setObject(1,title);
             preparedStatement.setObject(2,name);
@@ -88,11 +88,11 @@ public class CustomerController implements CustomerService{
             while (resultSet.next()) {
                 Customer customer = new Customer(
                         resultSet.getString("custId"),
-                        resultSet.getString("title"),
-                        resultSet.getString("name"),
+                        resultSet.getString("CustTitle"),
+                        resultSet.getString("CustName"),
                         resultSet.getString("dob"),        // You can also use resultSet.getDate("dob") if DTO uses java.sql.Date
                         resultSet.getDouble("salary"),
-                        resultSet.getString("address"),
+                        resultSet.getString("CustAddress"),
                         resultSet.getString("city"),
                         resultSet.getString("province"),
                         resultSet.getString("postalCode")
@@ -110,7 +110,7 @@ public class CustomerController implements CustomerService{
     public Customer getCustomer(String text) {
 
         for (Customer customer: loadCustomerDetails()){
-            if (text.equals(customer.getCustId())){
+            if (text.equals(customer.getCustID())){
                 return customer;
             }
         }
