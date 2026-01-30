@@ -60,6 +60,8 @@ public class OrderFormController implements Initializable {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
+        orderController.updateOrder(txtOrderID.getText(), calDate.getValue().toString(), txtCustID.getText());
+        loadOrders();
 
     }
 

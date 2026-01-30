@@ -13,4 +13,6 @@ public interface OrderService {
     void deleteOrder(String id);
 
     Order getOrder(String id);
+
+    void updateOrder(String orderID, String date, String custID);
 }
