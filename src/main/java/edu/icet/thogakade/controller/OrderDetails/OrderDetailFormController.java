@@ -59,16 +59,25 @@ public class OrderDetailFormController implements Initializable {
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
         controller.deleteOrderDetails(txtOrderID.getText());
+        clearFields();
     }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
+        controller.updateOrderDetails(Double.parseDouble(txtDiscount.getText()), Integer.parseInt(txtOrderQTY.getText()), txtOrderID.getText());
+        loadOrderDetail();
+        clearFields();
 
     }
 
     @FXML
-    OrderDetail btnViewOnAction(ActionEvent event) {
-        return controller.viewOrederDetail(txtOrderID.getText());
+    void btnViewOnAction(ActionEvent event) {
+        OrderDetail orderDetail = controller.viewOrederDetail(txtOrderID.getText());
+        if(orderDetail != null){
+            txtItemCode.setText(orderDetail.getItemCode());
+            txtDiscount.setText(String.valueOf(orderDetail.getDiscount()));
+            txtOrderQTY.setText(String.valueOf(orderDetail.getOrderQTY()));
+        }
     }
 
     @FXML
