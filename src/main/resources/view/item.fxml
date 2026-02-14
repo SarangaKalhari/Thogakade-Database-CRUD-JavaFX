@@ -7,18 +7,37 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.thogakade.controller.Item.ItemFormController">
    <children>
-      <AnchorPane prefHeight="676.0" prefWidth="944.0">
+      <AnchorPane prefHeight="676.0" prefWidth="944.0" style="-fx-background-color: #a9b3c2; -fx-background-radius: 10px;">
          <children>
-            <Label layoutX="421.0" layoutY="45.0" prefHeight="59.0" prefWidth="276.0" text="Item Management">
+            <Label layoutX="155.0" layoutY="21.0" prefHeight="59.0" prefWidth="276.0" text="Item Management">
                <font>
                   <Font name="System Bold Italic" size="24.0" />
                </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startY="0.21969694079774799">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.13725490868091583" green="0.6235294342041016" blue="0.7686274647712708" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Label>
-            <TableView fx:id="tblItem" layoutX="146.0" layoutY="290.0" prefHeight="342.0" prefWidth="771.0">
+            <TableView fx:id="tblItem" layoutX="146.0" layoutY="290.0" prefHeight="342.0" prefWidth="771.0" style="-fx-background-radius: 20px;">
                <columns>
                   <TableColumn fx:id="colItemCode" prefWidth="105.60000610351562" text="Item Code" />
                   <TableColumn fx:id="colDescription" prefWidth="274.40003967285156" text="Description" />
@@ -27,62 +46,65 @@
                   <TableColumn fx:id="colUnitPrice" prefWidth="162.400146484375" text="Unit Price" />
                </columns>
             </TableView>
-            <TextField fx:id="txtItemCode" layoutX="155.0" layoutY="117.0" prefHeight="26.0" prefWidth="214.0" promptText="Item Code" />
-            <TextField fx:id="txtDescription" layoutX="415.0" layoutY="117.0" prefHeight="26.0" prefWidth="484.0" promptText="Description" />
-            <TextField fx:id="txtCatagory" layoutX="155.0" layoutY="165.0" prefHeight="26.0" prefWidth="214.0" promptText="Catagory" />
-            <TextField fx:id="txtUnitPrice" layoutX="415.0" layoutY="165.0" prefHeight="26.0" prefWidth="214.0" promptText="Unit Price" />
-            <TextField fx:id="txtQTY" layoutX="681.0" layoutY="164.0" prefHeight="26.0" prefWidth="222.0" promptText="Qty On Hand" />
-            <Button layoutX="155.0" layoutY="219.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="25.0" prefWidth="70.0" text="ADD">
+            <Button layoutX="512.0" layoutY="36.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #4474c2; -fx-background-radius: 10px;" text="ADD" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button layoutX="345.0" layoutY="219.0" mnemonicParsing="false" onAction="#btnViewOnAction" prefHeight="25.0" prefWidth="70.0" text="View">
+            <Button layoutX="612.0" layoutY="36.0" mnemonicParsing="false" onAction="#btnViewOnAction" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5ac73c; -fx-background-radius: 10px;" text="View" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button layoutX="557.0" layoutY="219.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="70.0" text="Update">
+            <Button layoutX="715.0" layoutY="36.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #de8d2a; -fx-background-radius: 10px;" text="Update" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button layoutX="770.0" layoutY="219.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="25.0" prefWidth="70.0" text="Delete">
+            <Button layoutX="819.0" layoutY="36.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #ba3416; -fx-background-radius: 10px;" text="Delete" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Pane prefHeight="715.0" prefWidth="136.0" style="-fx-background-color: #3a6cbd;">
+            <Pane prefHeight="715.0" prefWidth="136.0" style="-fx-background-color: #3E3E42; -fx-background-radius: 10px;">
                <children>
-                  <Button layoutX="8.0" layoutY="333.0" mnemonicParsing="false" onAction="#customerOnAction" prefHeight="30.0" prefWidth="118.0" text="Customer">
+                  <Button layoutX="8.0" layoutY="50.0" mnemonicParsing="false" onAction="#customerOnAction" prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: #3E3E42;" text="Customer" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button layoutX="8.0" layoutY="412.0" mnemonicParsing="false" onAction="#itemOnAction" prefHeight="30.0" prefWidth="118.0" text="Item">
+                  <Button layoutX="8.0" layoutY="131.0" mnemonicParsing="false" onAction="#itemOnAction" prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: #3E3E42;" text="Item" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button layoutX="8.0" layoutY="493.0" mnemonicParsing="false" onAction="#orderOnAction" prefHeight="50.0" prefWidth="118.0" text="Order&#10;Management">
+                  <Button layoutX="5.0" layoutY="209.0" mnemonicParsing="false" onAction="#orderOnAction" prefHeight="59.0" prefWidth="124.0" style="-fx-background-color: #3E3E42;" text="Order&#10;Management" textAlignment="CENTER" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button layoutX="8.0" layoutY="574.0" mnemonicParsing="false" onAction="#orderDetailOnAction" prefHeight="50.0" prefWidth="118.0" text="Order &#10;Details">
+                  <Button layoutX="8.0" layoutY="312.0" mnemonicParsing="false" onAction="#orderDetailOnAction" prefHeight="59.0" prefWidth="118.0" style="-fx-background-color: #3E3E42;" text="Order &#10;Details" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </Button>
                </children>
             </Pane>
-            <Button layoutX="438.0" layoutY="649.0" mnemonicParsing="false" onAction="#reloadOnAction" prefHeight="30.0" prefWidth="100.0" text="Reload">
+            <Button layoutX="438.0" layoutY="649.0" mnemonicParsing="false" onAction="#reloadOnAction" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #3E3E42; -fx-background-radius: 10px;" text="Reload" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </Button>
+            <AnchorPane layoutX="146.0" layoutY="88.0" prefHeight="163.0" prefWidth="771.0" style="-fx-background-color: white; -fx-background-radius: 20px;">
+               <children>
+                  <TextField fx:id="txtItemCode" layoutX="40.0" layoutY="39.0" prefHeight="26.0" prefWidth="214.0" promptText="Item Code" style="-fx-background-color: #ebe8e6; -fx-background-radius: 10px; -fx-alignment: center;" />
+                  <TextField fx:id="txtDescription" layoutX="298.0" layoutY="39.0" prefHeight="26.0" prefWidth="430.0" promptText="Description" style="-fx-background-color: #ebe8e6; -fx-background-radius: 10px; -fx-alignment: center;" />
+                  <TextField fx:id="txtCatagory" layoutX="40.0" layoutY="102.0" prefHeight="26.0" prefWidth="214.0" promptText="Catagory" style="-fx-background-color: #ebe8e6; -fx-alignment: center; -fx-background-radius: 10px;" />
+                  <TextField fx:id="txtUnitPrice" layoutX="297.0" layoutY="102.0" prefHeight="26.0" prefWidth="214.0" promptText="Unit Price" style="-fx-background-color: #ebe8e6 #ebe8e6; -fx-alignment: center; -fx-background-radius: 10px;" />
+                  <TextField fx:id="txtQTY" layoutX="548.0" layoutY="102.0" prefHeight="26.0" prefWidth="178.0" promptText="Qty On Hand" style="-fx-background-color: #ebe8e6; -fx-alignment: center; -fx-background-radius: 10px;" />
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
-      <Button mnemonicParsing="false" text="Button" />
    </children>
 </AnchorPane>

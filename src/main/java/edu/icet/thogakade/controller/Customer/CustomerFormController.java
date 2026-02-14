@@ -189,7 +189,7 @@ public class CustomerFormController implements Initializable {
         }
     }
 
-    void clearFields(){
+    private void clearFields(){
         txtID.clear();
         txtName.clear();
         txtCity.clear();
