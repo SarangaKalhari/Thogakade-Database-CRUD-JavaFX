@@ -53,11 +53,12 @@ public class OrderDetailFormController implements Initializable {
     void btnAddOnAction(ActionEvent event) {
         controller.addOrderDetail(txtOrderID.getText(), txtItemCode.getText(), Integer.parseInt(txtOrderQTY.getText()), Double.parseDouble(txtDiscount.getText()));
         loadOrderDetail();
+        clearFields();
     }
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-
+        controller.deleteOrderDetails(txtOrderID.getText());
     }
 
     @FXML
@@ -66,8 +67,8 @@ public class OrderDetailFormController implements Initializable {
     }
 
     @FXML
-    void btnViewOnAction(ActionEvent event) {
-
+    OrderDetail btnViewOnAction(ActionEvent event) {
+        return controller.viewOrederDetail(txtOrderID.getText());
     }
 
     @FXML
@@ -115,4 +116,12 @@ public class OrderDetailFormController implements Initializable {
         detailObservableList.clear();
         tblOrderDetails.setItems(controller.loadOrderDetails());
     }
+
+    private void clearFields(){
+        txtOrderID.clear();
+        txtItemCode.clear();
+        txtDiscount.clear();
+        txtOrderQTY.clear();
+    }
+
 }

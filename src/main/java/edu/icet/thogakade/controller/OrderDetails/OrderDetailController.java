@@ -1,7 +1,6 @@
 package edu.icet.thogakade.controller.OrderDetails;
 
 import edu.icet.thogakade.db.DBConnection;
-import edu.icet.thogakade.model.DTO.Customer;
 import edu.icet.thogakade.model.DTO.OrderDetail;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -60,5 +59,20 @@ public class OrderDetailController implements OrderDetailService{
         }
     }
 
+    @Override
+    public OrderDetail viewOrederDetail(String orderId) {
 
+            for (OrderDetail order: loadOrderDetails()){
+                if (orderId.equals(order.getOrderID())){
+                    return order;
+                }
+            }
+            return null;
+
+    }
+
+
+    public void deleteOrderDetails(String text) {
+
+    }
 }

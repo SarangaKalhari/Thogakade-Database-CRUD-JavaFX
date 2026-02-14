@@ -7,73 +7,101 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.thogakade.controller.OrderDetails.OrderDetailFormController">
    <children>
-      <AnchorPane prefHeight="720.0" prefWidth="949.0">
+      <AnchorPane prefHeight="720.0" prefWidth="933.0" style="-fx-background-color: #a9b3c2; -fx-background-radius: 10px; -fx-background-radius: 10px;">
          <children>
-            <Label layoutX="459.0" layoutY="39.0" prefHeight="59.0" prefWidth="233.0" text="Order Details">
+            <Label layoutX="185.0" layoutY="16.0" prefHeight="59.0" prefWidth="190.0" text="Order Details">
                <font>
                   <Font name="System Bold Italic" size="24.0" />
                </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startY="0.21590904756025836">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.26354774832725525" green="0.2714879810810089" blue="0.27368420362472534" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.08882907133243612">
+                           <color>
+                              <Color red="0.26354774832725525" green="0.2714879810810089" blue="0.27368420362472534" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.13725490868091583" green="0.6235294342041016" blue="0.7686274647712708" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Label>
-            <TableView fx:id="tblOrderDetails" layoutX="227.0" layoutY="278.0" prefHeight="384.0" prefWidth="612.0">
+            <TableView fx:id="tblOrderDetails" layoutX="215.0" layoutY="274.0" prefHeight="384.0" prefWidth="638.0">
                <columns>
-                  <TableColumn fx:id="colOrderID" prefWidth="119.99998474121094" text="Order ID" />
-                  <TableColumn fx:id="colItemCode" prefWidth="156.0" text="Item Code" />
-                  <TableColumn fx:id="colOrderQty" prefWidth="130.39996337890625" text="Order QTY" />
-                  <TableColumn fx:id="colDiscount" prefWidth="197.60003662109375" text="Discount" />
+                  <TableColumn fx:id="colOrderID" prefWidth="131.20001220703125" text="Order ID" />
+                  <TableColumn fx:id="colItemCode" prefWidth="162.4000244140625" text="Item Code" />
+                  <TableColumn fx:id="colOrderQty" prefWidth="132.80010986328125" text="Order QTY" />
+                  <TableColumn fx:id="colDiscount" prefWidth="208.79996337890623" text="Discount" />
                </columns>
             </TableView>
-            <TextField fx:id="txtOrderID" layoutX="225.0" layoutY="117.0" prefHeight="26.0" prefWidth="262.0" promptText="Order ID" />
-            <TextField fx:id="txtItemCode" layoutX="576.0" layoutY="117.0" prefHeight="26.0" prefWidth="262.0" promptText="Item Code" />
-            <TextField fx:id="txtOrderQTY" layoutX="225.0" layoutY="164.0" prefHeight="26.0" prefWidth="262.0" promptText="Order QTY" />
-            <TextField fx:id="txtDiscount" layoutX="576.0" layoutY="164.0" prefHeight="26.0" prefWidth="262.0" promptText="Discount" />
-            <Button layoutX="225.0" layoutY="219.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="25.0" prefWidth="70.0" text="ADD">
+            <Button layoutX="516.0" layoutY="38.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #4474c2; -fx-background-radius: 10px;" text="ADD" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button layoutX="398.0" layoutY="219.0" mnemonicParsing="false" onAction="#btnViewOnAction" prefHeight="25.0" prefWidth="70.0" text="View">
+            <Button layoutX="607.0" layoutY="38.0" mnemonicParsing="false" onAction="#btnViewOnAction" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #5ac73c; -fx-background-radius: 10px;" text="View" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button layoutX="582.0" layoutY="219.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="70.0" text="Update">
+            <Button layoutX="696.0" layoutY="38.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #de8d2a; -fx-background-radius: 10px;" text="Update" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button layoutX="767.0" layoutY="219.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="25.0" prefWidth="70.0" text="Delete">
+            <Button layoutX="782.0" layoutY="38.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #ba3416; -fx-background-radius: 10px;" text="Delete" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Pane prefHeight="720.0" prefWidth="136.0" style="-fx-background-color: #3a6cbd;">
+            <Pane prefHeight="720.0" prefWidth="150.0" style="-fx-background-color: #3E3E42; -fx-background-radius: 10px;">
                <children>
-                  <Button layoutX="8.0" layoutY="333.0" mnemonicParsing="false" onAction="#customerOnAction" prefHeight="30.0" prefWidth="118.0" text="Customer">
+                  <Button layoutX="16.0" layoutY="88.0" mnemonicParsing="false" onAction="#customerOnAction" prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: #3E3E42;" text="Customer" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button layoutX="8.0" layoutY="412.0" mnemonicParsing="false" onAction="#itemOnAction" prefHeight="30.0" prefWidth="118.0" text="Item">
+                  <Button layoutX="16.0" layoutY="168.0" mnemonicParsing="false" onAction="#itemOnAction" prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: #3E3E42;" text="Item" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button layoutX="8.0" layoutY="493.0" mnemonicParsing="false" onAction="#orderOnAction" prefHeight="50.0" prefWidth="118.0" text="Order&#10;Management">
+                  <Button layoutX="9.0" layoutY="255.0" mnemonicParsing="false" onAction="#orderOnAction" prefHeight="59.0" prefWidth="125.0" style="-fx-background-color: #3E3E42;" text="Order&#10;Management" textAlignment="CENTER" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button layoutX="8.0" layoutY="574.0" mnemonicParsing="false" onAction="#orderDetailOnAction" prefHeight="50.0" prefWidth="118.0" text="Order &#10;Details">
+                  <Button layoutX="16.0" layoutY="360.0" mnemonicParsing="false" onAction="#orderDetailOnAction" prefHeight="59.0" prefWidth="118.0" style="-fx-background-color: #3E3E42;" text="Order &#10;Details" textAlignment="CENTER" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </Button>
                </children>
             </Pane>
+            <AnchorPane layoutX="185.0" layoutY="93.0" prefHeight="155.0" prefWidth="698.0" style="-fx-background-color: white; -fx-background-radius: 20px;">
+               <children>
+                  <TextField fx:id="txtItemCode" layoutX="382.0" layoutY="33.0" prefHeight="26.0" prefWidth="262.0" promptText="Item Code" style="-fx-background-color: #ebe8e6; -fx-background-radius: 10px; -fx-alignment: center;" />
+                  <TextField fx:id="txtOrderID" layoutX="50.0" layoutY="33.0" prefHeight="26.0" prefWidth="262.0" promptText="Order ID" style="-fx-background-color: #ebe8e6; -fx-background-radius: 10px; -fx-alignment: center;" />
+                  <TextField fx:id="txtOrderQTY" layoutX="50.0" layoutY="86.0" prefHeight="26.0" prefWidth="262.0" promptText="Order QTY" style="-fx-alignment: center; -fx-background-color: #ebe8e6; -fx-background-radius: 10px;" />
+                  <TextField fx:id="txtDiscount" layoutX="382.0" layoutY="86.0" prefHeight="26.0" prefWidth="262.0" promptText="Discount" style="-fx-alignment: center; -fx-background-color: #ebe8e6; -fx-background-radius: 10px;" />
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>
