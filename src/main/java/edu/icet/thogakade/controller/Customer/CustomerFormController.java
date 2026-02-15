@@ -150,12 +150,15 @@ public class CustomerFormController implements Initializable {
         LocalDate localDate = calDate.getValue();
         controller.addCustomer(txtID.getText(), txtTitle.getText(), txtName.getText(), String.valueOf(localDate), Double.parseDouble(txtSalary.getText()), txtAddress.getText(), txtCity.getText(), txtProvience.getText(), txtPostalCode.getText());
         loadCustomerDetails();
+        clearFields();
     }
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
         controller.deleteCustomer(txtID.getText());
         loadCustomerDetails();
+        clearFields();
+
     }
 
     @FXML
@@ -167,6 +170,7 @@ public class CustomerFormController implements Initializable {
     void btnUpdateOnAction(ActionEvent event) {
         controller.updateCustomerDetails(txtID.getText(), txtTitle.getText(), txtName.getText(), calDate.toString(), Double.parseDouble(txtSalary.getText()), txtAddress.getText(), txtCity.getText(), txtProvience.getText(), txtPostalCode.getText());
         loadCustomerDetails();
+        clearFields();
     }
 
     @FXML
@@ -183,6 +187,18 @@ public class CustomerFormController implements Initializable {
             txtProvience.setText(customer.getProvince());
             txtPostalCode.setText(customer.getPostalCode());
         }
+    }
+
+    private void clearFields(){
+        txtID.clear();
+        txtName.clear();
+        txtCity.clear();
+        txtAddress.clear();
+        txtPostalCode.clear();
+        txtProvience.clear();
+        txtSalary.clear();
+        txtTitle.clear();
+        calDate.setValue(null);
     }
 
 }

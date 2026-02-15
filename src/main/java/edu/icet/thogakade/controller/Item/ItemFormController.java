@@ -63,12 +63,14 @@ public class ItemFormController implements Initializable {
     void btnAddOnAction(ActionEvent event) throws SQLException {
         itemController.addItem(txtItemCode.getText(), txtDescription.getText(), txtCatagory.getText(), Double.parseDouble(txtUnitPrice.getText()), Integer.parseInt(txtQTY.getText()));
         loadItemDetails();
+        clearFields();
     }
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) throws SQLException {
         itemController.deleteItem(txtItemCode.getText());
         loadItemDetails();
+        clearFields();
 
     }
 
@@ -76,6 +78,7 @@ public class ItemFormController implements Initializable {
     void btnUpdateOnAction(ActionEvent event) throws SQLException {
         itemController.updateItem(txtItemCode.getText(), txtDescription.getText(), txtCatagory.getText(), Integer.parseInt(txtQTY.getText()), Double.parseDouble(txtUnitPrice.getText()));
         loadItemDetails();
+        clearFields();
 
     }
 
@@ -117,6 +120,7 @@ public class ItemFormController implements Initializable {
 
     public void reloadOnAction(ActionEvent actionEvent) throws SQLException {
         loadItemDetails();
+        clearFields();
     }
 
     @Override
@@ -149,5 +153,13 @@ public class ItemFormController implements Initializable {
     private void loadItemDetails() throws SQLException {
         itemInfoArray.clear();
         tblItem.setItems(itemController.loadItemTable());
+    }
+
+    private void clearFields(){
+        txtItemCode.clear();
+        txtDescription.clear();
+        txtCatagory.clear();
+        txtQTY.clear();
+        txtUnitPrice.clear();
     }
 }

@@ -1,7 +1,6 @@
 package edu.icet.thogakade.controller.OrderDetails;
 
 import edu.icet.thogakade.db.DBConnection;
-import edu.icet.thogakade.model.DTO.Customer;
 import edu.icet.thogakade.model.DTO.OrderDetail;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -60,5 +59,47 @@ public class OrderDetailController implements OrderDetailService{
         }
     }
 
+    @Override
+    public OrderDetail viewOrederDetail(String orderId) {
 
+            for (OrderDetail order: loadOrderDetails()){
+                if (orderId.equals(order.getOrderID())){
+                    return order;
+                }
+            }
+            return null;
+
+    }
+
+
+    @Override
+    public void deleteOrderDetails(String text) {
+
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM orderdetail WHERE OrderID=?");
+
+            statement.setObject(1, text);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @Override
+    public void updateOrderDetails(double discount, int qty, String id) {
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement statement = connection.prepareStatement("UPDATE orderdetail SET  Discount=?, OrderQTY=? WHERE OrderID=?");
+
+            statement.setObject(1,discount);
+            statement.setObject(2,qty);
+            statement.setObject(3,id);
+
+            statement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

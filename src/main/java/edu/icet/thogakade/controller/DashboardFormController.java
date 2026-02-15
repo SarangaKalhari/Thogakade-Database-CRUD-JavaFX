@@ -19,9 +19,6 @@ public class DashboardFormController {
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/customer.fxml"))));
         stage.setTitle(title);
 
-        Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        currentStage.close();
-
         stage.show();
     }
 
@@ -29,9 +26,6 @@ public class DashboardFormController {
 
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/item.fxml"))));
             stage.setTitle(title);
-
-            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            currentStage.close();
 
             stage.show();
 
@@ -42,9 +36,6 @@ public class DashboardFormController {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/order_management.fxml"))));
             stage.setTitle(title);
 
-            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            currentStage.close();
-
             stage.show();
     }
 
@@ -53,9 +44,6 @@ public class DashboardFormController {
 
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/order_details.fxml"))));
             stage.setTitle(title);
-
-            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            currentStage.close();
 
             stage.show();
 
